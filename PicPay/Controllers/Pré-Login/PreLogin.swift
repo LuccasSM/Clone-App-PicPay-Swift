@@ -15,6 +15,7 @@ class PreLogin: UIViewController {
         super.viewDidLoad()
         
         self.view.addSubview(buttonBanner)
+        self.view.addSubview(text)
         self.view.addSubview(buttonCadastrar)
         self.view.addSubview(buttonEntrar)
         self.view.addSubview(interrogationButton)
@@ -23,15 +24,18 @@ class PreLogin: UIViewController {
             buttonBanner.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             buttonBanner.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height),
             
-            buttonCadastrar.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.72),
-            buttonCadastrar.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.053),
-            buttonCadastrar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            buttonCadastrar.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            text.bottomAnchor.constraint(equalTo: self.buttonCadastrar.safeAreaLayoutGuide.topAnchor, constant: -16),
             
-            buttonEntrar.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.72),
-            buttonEntrar.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.053),
-            buttonEntrar.topAnchor.constraint(equalTo: self.buttonCadastrar.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            buttonCadastrar.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40),
+            buttonCadastrar.heightAnchor.constraint(equalToConstant: 40),
+            buttonCadastrar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            buttonEntrar.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40),
+            buttonEntrar.heightAnchor.constraint(equalToConstant: 40),
             buttonEntrar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            buttonEntrar.topAnchor.constraint(equalTo: self.buttonCadastrar.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            buttonEntrar.bottomAnchor.constraint(equalTo: self.interrogationButton.topAnchor, constant: -40),
             
             interrogationButton.widthAnchor.constraint(equalToConstant: 20),
             interrogationButton.heightAnchor.constraint(equalToConstant: 20),
@@ -58,6 +62,16 @@ class PreLogin: UIViewController {
         self.view.addSubview(button)
         button.setImage(image, for: .normal)
         return button
+    }()
+    
+    private lazy var text: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "Com o PicPay seus \npagamentos são mais \nsimples e seguros."
+        text.font = UIFont.boldSystemFont(ofSize: 22)
+        text.textColor = .white
+        text.numberOfLines = 0
+        return text
     }()
     
     private lazy var buttonCadastrar: UIButton = {

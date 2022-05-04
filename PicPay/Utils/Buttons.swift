@@ -11,7 +11,7 @@ class Buttons: UIButton {
     func button() -> UIButton {
         let button = UIButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 21
+        button.layer.cornerRadius = 20
         return button
     }
 }
