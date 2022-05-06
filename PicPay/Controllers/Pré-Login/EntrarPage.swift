@@ -24,7 +24,7 @@ class EntrarPage: UIViewController {
         button.widthAnchor.constraint(equalToConstant: 75).isActive = true
         button.heightAnchor.constraint(equalToConstant: 35).isActive = true
         button.adjustsImageWhenHighlighted = false
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -12, bottom: 0, right: 7)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 10)
         button.setImage(UIImage(named: "back"), for: UIControl.State.normal)
         return button
     }()
