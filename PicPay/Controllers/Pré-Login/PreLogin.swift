@@ -61,6 +61,7 @@ class PreLogin: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(button)
         button.setImage(image, for: .normal)
+        button.adjustsImageWhenHighlighted = false
         return button
     }()
     
