@@ -80,6 +80,7 @@ class PreLogin: UIViewController {
         button.backgroundColor = .greenButtonPL
         button.setTitle("Cadastrar", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(cadastrarPage), for: .touchUpInside)
         button.adjustsImageWhenHighlighted = false
         return button
     }()
@@ -91,6 +92,7 @@ class PreLogin: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.setTitle("Entrar", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(entrarPage), for: .touchUpInside)
         button.adjustsImageWhenHighlighted = false
         return button
     }()
@@ -105,6 +107,30 @@ class PreLogin: UIViewController {
     }()
     
     // MARK: - Navegacoes da tela
+    
+    @objc func cadastrarPage() {
+        let controller = CadastrarPage()
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: false, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    
+    @objc func entrarPage() {
+        let controller = EntrarPage()
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: false, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
     
     @objc func interrogationPage() {
         self.present(InterrogationPage(), animated: true)

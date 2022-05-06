@@ -12,6 +12,8 @@
 		F81BB282281F709C009D5EBB /* InterrogationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB281281F709C009D5EBB /* InterrogationPage.swift */; };
 		F81BB284281F7788009D5EBB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB283281F7788009D5EBB /* Background.swift */; };
 		F81BB289281F8423009D5EBB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB288281F8423009D5EBB /* Extensions.swift */; };
+		F89192CE2824CD460039F8DF /* CadastrarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89192CD2824CD460039F8DF /* CadastrarPage.swift */; };
+		F89192D02824D07F0039F8DF /* EntrarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89192CF2824D07F0039F8DF /* EntrarPage.swift */; };
 		F8FB0AC52819F9AC006DF2F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB0AC42819F9AC006DF2F8 /* AppDelegate.swift */; };
 		F8FB0AC72819F9AC006DF2F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB0AC62819F9AC006DF2F8 /* SceneDelegate.swift */; };
 		F8FB0AC92819F9AC006DF2F8 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FB0AC82819F9AC006DF2F8 /* Splash.swift */; };
@@ -27,6 +29,8 @@
 		F81BB281281F709C009D5EBB /* InterrogationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterrogationPage.swift; sourceTree = "<group>"; };
 		F81BB283281F7788009D5EBB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		F81BB288281F8423009D5EBB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F89192CD2824CD460039F8DF /* CadastrarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastrarPage.swift; sourceTree = "<group>"; };
+		F89192CF2824D07F0039F8DF /* EntrarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrarPage.swift; sourceTree = "<group>"; };
 		F8FB0AC12819F9AC006DF2F8 /* PicPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FB0AC42819F9AC006DF2F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8FB0AC62819F9AC006DF2F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			children = (
 				F81BB277281F6B6C009D5EBB /* PreLogin.swift */,
 				F81BB281281F709C009D5EBB /* InterrogationPage.swift */,
+				F89192CD2824CD460039F8DF /* CadastrarPage.swift */,
+				F89192CF2824D07F0039F8DF /* EntrarPage.swift */,
 			);
 			name = "Pré-Login";
 			path = "Pré-Login";
@@ -223,10 +229,12 @@
 			files = (
 				F8FF5BA52820BA9300CB3061 /* Buttons.swift in Sources */,
 				F81BB282281F709C009D5EBB /* InterrogationPage.swift in Sources */,
+				F89192CE2824CD460039F8DF /* CadastrarPage.swift in Sources */,
 				F81BB284281F7788009D5EBB /* Background.swift in Sources */,
 				F8FB0AC92819F9AC006DF2F8 /* Splash.swift in Sources */,
 				F81BB289281F8423009D5EBB /* Extensions.swift in Sources */,
 				F81BB280281F6E5A009D5EBB /* Colors.swift in Sources */,
+				F89192D02824D07F0039F8DF /* EntrarPage.swift in Sources */,
 				F81BB278281F6B6C009D5EBB /* PreLogin.swift in Sources */,
 				F8FB0AC52819F9AC006DF2F8 /* AppDelegate.swift in Sources */,
 				F8FB0AC72819F9AC006DF2F8 /* SceneDelegate.swift in Sources */,
