@@ -56,10 +56,10 @@
 		F81BB27D281F6CF4009D5EBB /* Pré-Login */ = {
 			isa = PBXGroup;
 			children = (
+				F86C464F2826A4580027C9B9 /* Entrar */,
+				F86C464E2826A4490027C9B9 /* Cadastrar */,
 				F81BB277281F6B6C009D5EBB /* PreLogin.swift */,
 				F81BB281281F709C009D5EBB /* InterrogationPage.swift */,
-				F89192CD2824CD460039F8DF /* CadastrarPage.swift */,
-				F89192CF2824D07F0039F8DF /* EntrarPage.swift */,
 			);
 			name = "Pré-Login";
 			path = "Pré-Login";
@@ -124,6 +124,22 @@
 				F8FB0AC62819F9AC006DF2F8 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F86C464E2826A4490027C9B9 /* Cadastrar */ = {
+			isa = PBXGroup;
+			children = (
+				F89192CD2824CD460039F8DF /* CadastrarPage.swift */,
+			);
+			path = Cadastrar;
+			sourceTree = "<group>";
+		};
+		F86C464F2826A4580027C9B9 /* Entrar */ = {
+			isa = PBXGroup;
+			children = (
+				F89192CF2824D07F0039F8DF /* EntrarPage.swift */,
+			);
+			path = Entrar;
 			sourceTree = "<group>";
 		};
 		F8FB0AB82819F9AC006DF2F8 = {
