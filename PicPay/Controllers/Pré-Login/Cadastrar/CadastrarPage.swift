@@ -80,8 +80,6 @@ class CadastrarPage: UIViewController {
         return button
     }()
     
-    private 
-    
     // MARK: - Navegacoes da tela
     
     @objc func returnButton() {
@@ -96,5 +94,8 @@ class CadastrarPage: UIViewController {
         view.window!.layer.add(transition, forKey: kCATransition)
     }
     
-    @objc func popUpWhyCPF() {}
+    @objc func popUpWhyCPF() {
+        let vc = WhyCPF()
+        self.present(vc, animated: true)
+    }
 }
