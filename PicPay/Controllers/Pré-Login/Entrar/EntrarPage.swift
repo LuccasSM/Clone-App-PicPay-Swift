@@ -20,12 +20,10 @@ class EntrarPage: UIViewController {
             
         NotificationCenter.default.addObserver(self, selector: #selector(exitBG), name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.addObserver(self, selector: #selector(enterBG), name: UIApplication.willResignActiveNotification, object: .none)
-
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
         button.addTarget(self, action: #selector(returnButton), for: .touchUpInside)
-        
         
     // MARK: - Chamando Background
         
@@ -61,10 +59,10 @@ class EntrarPage: UIViewController {
     //MARK: - Func para quando entrar e sair de Background
     
     @objc func enterBG() {
-        button.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     @objc func exitBG() {
-        button.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
 }

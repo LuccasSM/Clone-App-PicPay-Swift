@@ -112,10 +112,10 @@ class CadastrarPage: UIViewController {
     //MARK: - Func para quando entrar e sair de Background
     
     @objc func enterBG() {
-        button.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     @objc func exitBG() {
-        button.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
