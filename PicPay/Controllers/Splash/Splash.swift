@@ -9,6 +9,16 @@ import UIKit
 
 class Splash: UIViewController {
     
+    // MARK: - Método para trocar cor do Status Bar Style
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .greenDefault

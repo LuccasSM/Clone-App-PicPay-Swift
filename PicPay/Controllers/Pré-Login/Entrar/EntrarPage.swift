@@ -8,15 +8,30 @@
 import UIKit
 
 class EntrarPage: UIViewController {
-
+    
+    // MARK: - Setando cor do BarStyle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Login"
         
+    //MARK: - Método para Observar quando entrar e sair de Background o App
+            
+        NotificationCenter.default.addObserver(self, selector: #selector(exitBG), name: UIApplication.didBecomeActiveNotification, object: .none)
+        NotificationCenter.default.addObserver(self, selector: #selector(enterBG), name: UIApplication.willResignActiveNotification, object: .none)
+
+        
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
         button.addTarget(self, action: #selector(returnButton), for: .touchUpInside)
+        
+        
+    // MARK: - Chamando Background
+        
+        let background = Background(frame: view.frame)
+        self.view.addSubview(background)
+        background.isHidden = true
     }
     
     private lazy var button: UIButton = {
@@ -41,5 +56,15 @@ class EntrarPage: UIViewController {
         transition.type = CATransitionType.push
         transition.subtype = CATransitionSubtype.fromLeft
         view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    
+    //MARK: - Func para quando entrar e sair de Background
+    
+    @objc func enterBG() {
+        button.isHidden = true
+    }
+
+    @objc func exitBG() {
+        button.isHidden = false
     }
 }

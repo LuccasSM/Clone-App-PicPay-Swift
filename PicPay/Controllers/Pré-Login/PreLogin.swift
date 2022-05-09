@@ -10,7 +10,17 @@ import UIKit
 class PreLogin: UIViewController {
     
     var imageArr = ["image-pl-one","image-pl-two", "image-pl-three"]
-
+    
+    // MARK: - Método para trocar cor do Status Bar Style
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

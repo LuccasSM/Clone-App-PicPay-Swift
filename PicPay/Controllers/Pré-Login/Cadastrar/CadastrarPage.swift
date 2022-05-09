@@ -8,10 +8,15 @@
 import UIKit
 
 class CadastrarPage: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+    //MARK: - Método para Observar quando entrar e sair de Background o App
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(exitBG), name: UIApplication.didBecomeActiveNotification, object: .none)
+        NotificationCenter.default.addObserver(self, selector: #selector(enterBG), name: UIApplication.willResignActiveNotification, object: .none)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
@@ -31,6 +36,11 @@ class CadastrarPage: UIViewController {
             whyCPF.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             whyCPF.topAnchor.constraint(equalTo: self.textIdentify.safeAreaLayoutGuide.bottomAnchor, constant: 10),
         ])
+        
+        let background = Background(frame: view.frame)
+        self.view.addSubview(background)
+        background.isHidden = true
+        background.layer.zPosition = 2
     }
     
     private lazy var button: UIButton = {
@@ -97,5 +107,15 @@ class CadastrarPage: UIViewController {
     @objc func popUpWhyCPF() {
         let vc = WhyCPF()
         self.present(vc, animated: true)
+    }
+    
+    //MARK: - Func para quando entrar e sair de Background
+    
+    @objc func enterBG() {
+        button.isHidden = true
+    }
+
+    @objc func exitBG() {
+        button.isHidden = false
     }
 }
