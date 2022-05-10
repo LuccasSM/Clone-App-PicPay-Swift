@@ -13,10 +13,22 @@ class CadastrarPage: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-    //MARK: - Método para Observar quando entrar e sair de Background o App
+    //MARK: - Esconder teclado quando clicar fora
+        
+        self.hideKeyboardWhenTappedAround()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CadastrarPage.dismissKeyboard)))
+        
+    // MARK: - Inserindo itens ao ScrollView
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollViewContainer)
+        scrollViewContainer.addArrangedSubview(whiteView)
+        
+    //MARK: - Métodos para Observar quando entrar e sair de Background o App
         
         NotificationCenter.default.addObserver(self, selector: #selector(exitBG), name: UIApplication.didBecomeActiveNotification, object: .none)
         NotificationCenter.default.addObserver(self, selector: #selector(enterBG), name: UIApplication.willResignActiveNotification, object: .none)
+        NotificationCenter.default.addObserver(self, selector: #selector(hiddenKeyboard), name: UIApplication.willResignActiveNotification, object: .none)
         
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
@@ -25,23 +37,81 @@ class CadastrarPage: UIViewController {
         self.view.addSubview(identify)
         self.view.addSubview(textIdentify)
         self.view.addSubview(whyCPF)
+        self.view.addSubview(tfCPF)
+        self.view.addSubview(tfNasc)
+        self.view.addSubview(textTermosPolitica)
+        self.view.addSubview(buttonAvancar)
+        self.view.addSubview(jaCadastrado)
         
         NSLayoutConstraint.activate([
-            identify.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            identify.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            scrollViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            scrollViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            scrollViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            scrollViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            textIdentify.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            identify.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
+            identify.topAnchor.constraint(equalTo: self.scrollViewContainer.safeAreaLayoutGuide.topAnchor, constant: 32),
+            
+            textIdentify.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
             textIdentify.topAnchor.constraint(equalTo: self.identify.safeAreaLayoutGuide.bottomAnchor, constant: 10),
-            
-            whyCPF.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+
+            whyCPF.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
             whyCPF.topAnchor.constraint(equalTo: self.textIdentify.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+
+            tfCPF.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
+            tfCPF.topAnchor.constraint(equalTo: self.whyCPF.safeAreaLayoutGuide.bottomAnchor, constant: 24),
+            tfCPF.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 50),
+            tfCPF.heightAnchor.constraint(equalToConstant: 50),
+
+            tfNasc.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
+            tfNasc.topAnchor.constraint(equalTo: self.tfCPF.safeAreaLayoutGuide.bottomAnchor, constant: 12),
+            tfNasc.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 50),
+            tfNasc.heightAnchor.constraint(equalToConstant: 50),
+
+            textTermosPolitica.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
+            textTermosPolitica.topAnchor.constraint(equalTo: self.tfNasc.safeAreaLayoutGuide.bottomAnchor, constant: 24),
+
+            buttonAvancar.centerXAnchor.constraint(equalTo: scrollViewContainer.centerXAnchor),
+            buttonAvancar.bottomAnchor.constraint(equalTo: self.jaCadastrado.safeAreaLayoutGuide.bottomAnchor, constant: -55),
+
+            jaCadastrado.centerXAnchor.constraint(equalTo: scrollViewContainer.centerXAnchor),
+            jaCadastrado.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -12),
         ])
+        
+    // MARK: - Chamando Background
         
         let background = Background(frame: view.frame)
         self.view.addSubview(background)
         background.isHidden = true
-        background.layer.zPosition = 2
     }
+    
+    // MARK: - Views relacionadas ao ScrollView da tela
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    let scrollViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    let whiteView: UIView = {
+        let view = UIView()
+        view.heightAnchor.constraint(equalToConstant: 550).isActive = true
+        return view
+    }()
     
     private lazy var button: UIButton = {
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
@@ -70,27 +140,78 @@ class CadastrarPage: UIViewController {
         text.numberOfLines = 0
         return text
     }()
-    
-    private lazy var whyCPF: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .white
 
+    private lazy var whyCPF: UIButton = {
+        let button = ButtonUnderline().button()
         let attributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.underlineStyle: 1.2,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
             NSAttributedString.Key.foregroundColor: UIColor.greenButtonPL
         ]
         let attributedString = NSMutableAttributedString(string: "Por que precisamos do seu CPF?", attributes: attributes)
-        
         button.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
-        button.setTitleColor(.greenButtonPL, for: .normal)
-        button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(popUpWhyCPF), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var tfCPF: UITextField = {
+        let tf = TextField().tf()
+        tf.attributedPlaceholder = NSAttributedString(string: "CPF (somente números)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textFieldPlaceholders])
+        tf.font = UIFont.systemFont(ofSize: 14)
+        return tf
+    }()
+
+    private lazy var tfNasc: UITextField = {
+        let tf = TextField().tf()
+        tf.attributedPlaceholder = NSAttributedString(string: "Data de nascimento (dd/mm/aaaa)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textFieldPlaceholders])
+        tf.font = UIFont.systemFont(ofSize: 14)
+        return tf
+    }()
+
+    private lazy var textTermosPolitica: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "Ao criar sua conta, você concorda \ncom nossos"
+        text.textColor = .textFieldPlaceholders
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        text.font = UIFont.boldSystemFont(ofSize: 14)
+        return text
+    }()
+
+    private lazy var buttonAvancar: UIButton = {
+        let button = Buttons_Cadastrar_Entrar().button()
+        button.setTitle("Avançar", for: .normal)
+        button.addTarget(self, action: #selector(yourName), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var jaCadastrado: UIButton = {
+        let button = ButtonUnderline().button()
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.underlineStyle: 1.2,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.greenButtonPL
+        ]
+        let attributedString = NSMutableAttributedString(string: "Já sou cadastrado", attributes: attributes)
+        button.setAttributedTitle(NSAttributedString(attributedString: attributedString), for: .normal)
+        button.addTarget(self, action: #selector(returnEentrar), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Navegacoes da tela
+    
+    @objc func yourName() {
+        let controller = YourName()
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: false, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
     
     @objc func returnButton() {
         let controller = PreLogin()
@@ -117,5 +238,35 @@ class CadastrarPage: UIViewController {
 
     @objc func exitBG() {
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    @objc func returnEentrar() {
+        let controller = EntrarPage()
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: false, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromBottom
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    
+    // MARK: - Escondendo teclado quando clicar fora dele na tela
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CadastrarPage.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    //MARK: - Funcao para esconder teclado quando entrar em background
+    
+    @objc func hiddenKeyboard() {
+        self.view.endEditing(true)
     }
 }

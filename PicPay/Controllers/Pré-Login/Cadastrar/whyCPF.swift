@@ -49,7 +49,6 @@ class WhyCPF: UIViewController {
         let background = Background(frame: view.frame)
         self.view.addSubview(background)
         background.isHidden = true
-        background.layer.zPosition = 1
     }
     
     private lazy var image: UIImageView = {

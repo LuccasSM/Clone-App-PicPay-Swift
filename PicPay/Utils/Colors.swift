@@ -16,4 +16,5 @@ extension UIColor {
     static let greenButtonPL = UIColor.rgb(red: 6, green: 172, blue: 75)
     static let whyCPFPopUp = UIColor.rgb(red: 242, green: 242, blue: 242)
     static let whyCPFPopUpText = UIColor.rgb(red: 127, green: 127, blue: 127)
+    static let textFieldPlaceholders = UIColor.rgb(red: 82, green: 95, blue: 102)
 }
