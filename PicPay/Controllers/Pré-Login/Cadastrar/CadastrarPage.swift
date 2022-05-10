@@ -40,6 +40,11 @@ class CadastrarPage: UIViewController {
         self.view.addSubview(tfCPF)
         self.view.addSubview(tfNasc)
         self.view.addSubview(textTermosPolitica)
+        self.view.addSubview(termosButton)
+        self.view.addSubview(politicaButton)
+        self.view.addSubview(e)
+        self.view.addSubview(privacidadeButton)
+        self.view.addSubview(ponto)
         self.view.addSubview(buttonAvancar)
         self.view.addSubview(jaCadastrado)
         
@@ -76,6 +81,21 @@ class CadastrarPage: UIViewController {
 
             textTermosPolitica.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
             textTermosPolitica.topAnchor.constraint(equalTo: self.tfNasc.safeAreaLayoutGuide.bottomAnchor, constant: 24),
+            
+            termosButton.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor, constant: -43),
+            termosButton.topAnchor.constraint(equalTo: self.textTermosPolitica.safeAreaLayoutGuide.bottomAnchor),
+            
+            e.topAnchor.constraint(equalTo: self.textTermosPolitica.safeAreaLayoutGuide.bottomAnchor),
+            e.leadingAnchor.constraint(equalTo: self.termosButton.trailingAnchor),
+            
+            politicaButton.topAnchor.constraint(equalTo: self.textTermosPolitica.safeAreaLayoutGuide.bottomAnchor),
+            politicaButton.leadingAnchor.constraint(equalTo: self.e.trailingAnchor),
+            
+            privacidadeButton.topAnchor.constraint(equalTo: self.termosButton.safeAreaLayoutGuide.bottomAnchor),
+            privacidadeButton.centerXAnchor.constraint(equalTo: self.scrollViewContainer.centerXAnchor),
+            
+            ponto.topAnchor.constraint(equalTo: self.politicaButton.safeAreaLayoutGuide.bottomAnchor),
+            ponto.leadingAnchor.constraint(equalTo: self.privacidadeButton.trailingAnchor),
 
             buttonAvancar.centerXAnchor.constraint(equalTo: scrollViewContainer.centerXAnchor),
             buttonAvancar.bottomAnchor.constraint(equalTo: self.jaCadastrado.safeAreaLayoutGuide.bottomAnchor, constant: -55),
@@ -178,6 +198,86 @@ class CadastrarPage: UIViewController {
         text.font = UIFont.boldSystemFont(ofSize: 14)
         return text
     }()
+    
+    private lazy var termosButton: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let tapAction = UITapGestureRecognizer(target: self, action: #selector(termosPresent))
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.underlineStyle: 1.2,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.greenButtonPL
+        ]
+        let underlineAttributedString = NSAttributedString(string: "Termos de Serviço", attributes: attributes)
+        label.attributedText = underlineAttributedString
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .greenButtonPL
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tapAction)
+        return label
+    }()
+    
+    private lazy var e: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = " e"
+        text.textColor = .textFieldPlaceholders
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        text.font = UIFont.boldSystemFont(ofSize: 14)
+        return text
+    }()
+    
+    private lazy var politicaButton: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let tapAction = UITapGestureRecognizer(target: self, action: #selector(politicaPresent))
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.underlineStyle: 1.2,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.greenButtonPL
+        ]
+        let underlineAttributedString = NSAttributedString(string: " Política de", attributes: attributes)
+        label.attributedText = underlineAttributedString
+        label.textAlignment = .center
+        label.textColor = .greenButtonPL
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tapAction)
+        return label
+    }()
+    
+    private lazy var ponto: UILabel = {
+        let text = UILabel(frame: .zero)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.text = "."
+        text.textColor = .textFieldPlaceholders
+        text.numberOfLines = 0
+        text.textAlignment = .center
+        text.font = UIFont.boldSystemFont(ofSize: 14)
+        return text
+    }()
+    
+    private lazy var privacidadeButton: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let tapAction = UITapGestureRecognizer(target: self, action: #selector(politicaPresent))
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue]
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.underlineStyle: 1.2,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.greenButtonPL
+        ]
+        let underlineAttributedString = NSAttributedString(string: "Privacidade", attributes: attributes)
+        label.attributedText = underlineAttributedString
+        label.textAlignment = .center
+        label.textColor = .greenButtonPL
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tapAction)
+        return label
+    }()
 
     private lazy var buttonAvancar: UIButton = {
         let button = Buttons_Cadastrar_Entrar().button()
@@ -228,6 +328,14 @@ class CadastrarPage: UIViewController {
     @objc func popUpWhyCPF() {
         let vc = WhyCPF()
         self.present(vc, animated: true)
+    }
+    
+    @objc func termosPresent() {
+        self.present(TermsPage(), animated: true)
+    }
+    
+    @objc func politicaPresent() {
+        self.present(PoliticaPage(), animated: true)
     }
     
     //MARK: - Func para quando entrar e sair de Background

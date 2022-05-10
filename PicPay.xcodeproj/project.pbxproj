@@ -13,6 +13,8 @@
 		F81BB282281F709C009D5EBB /* InterrogationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB281281F709C009D5EBB /* InterrogationPage.swift */; };
 		F81BB284281F7788009D5EBB /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB283281F7788009D5EBB /* Background.swift */; };
 		F81BB289281F8423009D5EBB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB288281F8423009D5EBB /* Extensions.swift */; };
+		F8429FA6282AD09900298130 /* TermsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8429FA5282AD09900298130 /* TermsPage.swift */; };
+		F8429FA8282AD77F00298130 /* PoliticaPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8429FA7282AD77F00298130 /* PoliticaPage.swift */; };
 		F86C46512826A4FB0027C9B9 /* WhyCPF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86C46502826A4FB0027C9B9 /* WhyCPF.swift */; };
 		F88A96F52829CFEE00A78ABE /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A96F42829CFEE00A78ABE /* TextField.swift */; };
 		F88A96F72829D3F600A78ABE /* Buttons-Cadastrar-Entrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A96F62829D3F600A78ABE /* Buttons-Cadastrar-Entrar.swift */; };
@@ -35,6 +37,8 @@
 		F81BB281281F709C009D5EBB /* InterrogationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterrogationPage.swift; sourceTree = "<group>"; };
 		F81BB283281F7788009D5EBB /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		F81BB288281F8423009D5EBB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F8429FA5282AD09900298130 /* TermsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsPage.swift; sourceTree = "<group>"; };
+		F8429FA7282AD77F00298130 /* PoliticaPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticaPage.swift; sourceTree = "<group>"; };
 		F86C46502826A4FB0027C9B9 /* WhyCPF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyCPF.swift; sourceTree = "<group>"; };
 		F88A96F42829CFEE00A78ABE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		F88A96F62829D3F600A78ABE /* Buttons-Cadastrar-Entrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Buttons-Cadastrar-Entrar.swift"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				F89192CD2824CD460039F8DF /* CadastrarPage.swift */,
 				F86C46502826A4FB0027C9B9 /* WhyCPF.swift */,
 				F815C9B2282A96FA0083B150 /* YourName.swift */,
+				F8429FA5282AD09900298130 /* TermsPage.swift */,
+				F8429FA7282AD77F00298130 /* PoliticaPage.swift */,
 			);
 			path = Cadastrar;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 				F88A96F72829D3F600A78ABE /* Buttons-Cadastrar-Entrar.swift in Sources */,
 				F81BB282281F709C009D5EBB /* InterrogationPage.swift in Sources */,
 				F89192CE2824CD460039F8DF /* CadastrarPage.swift in Sources */,
+				F8429FA6282AD09900298130 /* TermsPage.swift in Sources */,
 				F88A96F92829E0B900A78ABE /* ButtonUnderline.swift in Sources */,
 				F81BB284281F7788009D5EBB /* Background.swift in Sources */,
+				F8429FA8282AD77F00298130 /* PoliticaPage.swift in Sources */,
 				F86C46512826A4FB0027C9B9 /* WhyCPF.swift in Sources */,
 				F8FB0AC92819F9AC006DF2F8 /* Splash.swift in Sources */,
 				F81BB289281F8423009D5EBB /* Extensions.swift in Sources */,
