@@ -331,11 +331,15 @@ class CadastrarPage: UIViewController {
     }
     
     @objc func termosPresent() {
-        self.present(TermsPage(), animated: true)
+        let controller = TermsPage()
+        let navVC = UINavigationController(rootViewController: controller)
+        present(navVC, animated: false, completion: nil)
     }
     
     @objc func politicaPresent() {
-        self.present(PoliticaPage(), animated: true)
+        let controller = PoliticaPage()
+        let navVC = UINavigationController(rootViewController: controller)
+        present(navVC, animated: false, completion: nil)
     }
     
     //MARK: - Func para quando entrar e sair de Background
