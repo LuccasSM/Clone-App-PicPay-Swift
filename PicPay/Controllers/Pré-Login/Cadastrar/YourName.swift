@@ -107,6 +107,7 @@ class YourName: UIViewController {
     private lazy var buttonAvancar: UIButton = {
         let button = Buttons_Cadastrar_Entrar().button()
         button.setTitle("Avançar", for: .normal)
+        button.addTarget(self, action: #selector(telephonePage), for: .touchUpInside)
         return button
     }()
     
@@ -121,6 +122,18 @@ class YourName: UIViewController {
         transition.duration = 0.4
         transition.type = CATransitionType.push
         transition.subtype = CATransitionSubtype.fromLeft
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    
+    @objc func telephonePage() {
+        let controller = TelephoneNumber()
+        let navVC = UINavigationController(rootViewController: controller)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: false, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
         view.window!.layer.add(transition, forKey: kCATransition)
     }
     

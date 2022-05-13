@@ -176,6 +176,7 @@ class CadastrarPage: UIViewController {
 
     private lazy var tfCPF: UITextField = {
         let tf = TextField().tf()
+        tf.keyboardType = .asciiCapableNumberPad
         tf.attributedPlaceholder = NSAttributedString(string: "CPF (somente números)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textFieldPlaceholders])
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
@@ -183,6 +184,7 @@ class CadastrarPage: UIViewController {
 
     private lazy var tfNasc: UITextField = {
         let tf = TextField().tf()
+        tf.keyboardType = .asciiCapableNumberPad
         tf.attributedPlaceholder = NSAttributedString(string: "Data de nascimento (dd/mm/aaaa)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.textFieldPlaceholders])
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F810F575282DF5AA0055755A /* TelephoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810F574282DF5AA0055755A /* TelephoneNumber.swift */; };
 		F815C9B3282A96FA0083B150 /* YourName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F815C9B2282A96FA0083B150 /* YourName.swift */; };
 		F81BB278281F6B6C009D5EBB /* PreLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB277281F6B6C009D5EBB /* PreLogin.swift */; };
 		F81BB280281F6E5A009D5EBB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81BB27F281F6E5A009D5EBB /* Colors.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F810F574282DF5AA0055755A /* TelephoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneNumber.swift; sourceTree = "<group>"; };
 		F815C9B2282A96FA0083B150 /* YourName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourName.swift; sourceTree = "<group>"; };
 		F81BB277281F6B6C009D5EBB /* PreLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLogin.swift; sourceTree = "<group>"; };
 		F81BB27F281F6E5A009D5EBB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				F815C9B2282A96FA0083B150 /* YourName.swift */,
 				F8429FA5282AD09900298130 /* TermsPage.swift */,
 				F8429FA7282AD77F00298130 /* PoliticaPage.swift */,
+				F810F574282DF5AA0055755A /* TelephoneNumber.swift */,
 			);
 			path = Cadastrar;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				F8FF5BA52820BA9300CB3061 /* Buttons.swift in Sources */,
 				F88A96F72829D3F600A78ABE /* Buttons-Cadastrar-Entrar.swift in Sources */,
+				F810F575282DF5AA0055755A /* TelephoneNumber.swift in Sources */,
 				F81BB282281F709C009D5EBB /* InterrogationPage.swift in Sources */,
 				F89192CE2824CD460039F8DF /* CadastrarPage.swift in Sources */,
 				F8429FA6282AD09900298130 /* TermsPage.swift in Sources */,
